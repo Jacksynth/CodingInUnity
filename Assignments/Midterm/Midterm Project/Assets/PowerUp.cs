@@ -20,7 +20,7 @@ public class PowerUp : MonoBehaviour
         {
             // Start the power-up effect
             StartCoroutine(StartPowerUp());
-        }
+            GetComponent<SpriteRenderer>().enabled = false;        }
     }
 
     IEnumerator StartPowerUp()
@@ -54,8 +54,12 @@ public class PowerUp : MonoBehaviour
 
     void Update() //flicker system
     {
+
+        if (Time.timeScale == 1.0f)
+        {
         flickerTimer += Time.deltaTime * flickerSpeed;
         bool isVisible = (Mathf.FloorToInt(flickerTimer) % 2) == 0;
         GetComponent<SpriteRenderer>().enabled = isVisible;
+        }
     }
 }

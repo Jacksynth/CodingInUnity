@@ -6,6 +6,7 @@ TagManager:
   tags:
   - ObstacleBorder
   - Obstacle
+  - Listener
   layers:
   - Default
   - TransparentFX

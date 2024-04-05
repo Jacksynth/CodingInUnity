@@ -5,6 +5,8 @@ using UnityEngine;
 public class GameStateSwitcher : MonoBehaviour
 {
 public AudioClip soundClip; // Assign the audio clip in the Unity Editor
+public GameObject[] targetObjects; // Assign the target GameObjects in the Inspector
+
     private AudioSource audioSource;
 //GameManager GameState;
 void OnTriggerEnter2D(Collider2D otherCollider)
@@ -13,7 +15,19 @@ void OnTriggerEnter2D(Collider2D otherCollider)
     // Check if the other collider has the "ObstacleBorder" tag
     if (otherCollider.CompareTag("Obstacle"))
     {
+         foreach (GameObject obj in targetObjects)
+        {
+            obj.SetActive(!obj.activeSelf);
+        }
+          
+       
+        // if (GameManager.Score > Memory.HighScore)
+        // {
+        //     Memory.HighScore = GameManager.Score
+        // }
         GameManager.GameState = 0;
+        GameManager.instance.ChangeGameState(0);
+
         Time.timeScale = 0;
         gameObject.GetComponent<PlayerMovement>().enabled = false;
 
@@ -29,9 +43,14 @@ void OnTriggerEnter2D(Collider2D otherCollider)
 
         // Play the audio clip
         audioSource.Play();
+        
 
     }
 }
+//  public void UpdateHighScore(int newScore)
+//     {
+//         Memory.Instance.UpdateHighScore(newScore);
+//     }
 
     }
 

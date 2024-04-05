@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -52,11 +53,11 @@ public class GameManager : MonoBehaviour
     void Awake()
     {
         instance = this;
-    }
-
-    void Start()
-    {
         ObstacleTimer = 1;
+        Score = 0;
+        _score = 0;
+        GameState = 1;
+        Time.timeScale = 1;
         StartCoroutine(SpawnObstacles());
         StartCoroutine(SpawnPowerUps());
 
@@ -125,13 +126,34 @@ public class GameManager : MonoBehaviour
 {
         // Update the TMP text with the current score value
         ScoreText.text = "Score: " + Score.ToString();
+          if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            // Change scene to a new scene (assigned in the inspector)
+            SceneManager.LoadScene("Main Menu");
+            Debug.Log("Menu triggered!");
+
+        }
     }
 
     // Method to update the score
-    public void UpdateScore(int NewScore)
+public void UpdateScore(int newScore)
+{
+    Score = newScore;
+    Debug.Log("Score updated: " + Score);
+    ////// GGGGGGGGGGGG
+    Memory.Instance.UpdateHighScore(newScore);
+
+}
+ public void ChangeGameState(int newState)
     {
-        Score = NewScore;
+        GameState = newState;
+        if (newState == 0)
+        {
+            // Update the score when GameState is set to 0
+            UpdateScore(Score); // Reset score to 0 or any other desired value
+        }
     }
+
 
 }
 
