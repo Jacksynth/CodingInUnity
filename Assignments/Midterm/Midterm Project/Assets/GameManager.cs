@@ -140,7 +140,6 @@ public void UpdateScore(int newScore)
 {
     Score = newScore;
     Debug.Log("Score updated: " + Score);
-    ////// GGGGGGGGGGGG
     Memory.Instance.UpdateHighScore(newScore);
 
 }
