@@ -1,0 +1,31 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2709
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;\f1\fswiss\fcharset0 Helvetica-Bold;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\margl1440\margr1440\vieww11520\viewh8400\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 Post processing refers to a volume that use shaders that typically goes at the end of the rendering pipeline. You can think of it like putting an effect on your stereo out bus. Post processing effects are usually associated with polish and they can range from very subtle, to experience defining. \
+
+\f1\b \
+BEFORE GETTING STARTED, ITS IMPORTANT TO NOTE THAT YOUR OPTIONS IN TERMS OF POST PROCESSING ARE HEAVILY DEPENDENT ON YOUR RENDERING PIPELINE. FOR BEST RESULTS, I RECOMMEND THE UNIVERSAL RENDERING PIPELINE. THIS IS THE ONE I\'92LL BE PRIMARILY REFERRING TO IN THIS GUIDE AS IT IS BY FAR THE SIMPLEST.\
+\
+ALSO IN MY UNITY PROJECT, ON PLAYING, THE GAME DISABLES MY VOLUME. YOU JUST HAVE TO TURN IT BACK ON.\
+\
+ALSO THROUGHOUT THIS GUIDE YOU\'92LL SEE ME ABBREVIATE POST PROCESSING AS PP. THIS IS BECAUSE I AM A CLEVER AND FUNNY PERSON.
+\f0\b0 \
+\
+There are a few ways to go about post processing and at the time of writing I\'92ve only gotten one to work for me but I\'92m pretty sure the reason has to do with the pipeline incompatibility issue mentioned above. The method I found to be the easiest was what I\'92ll call the \'93Volume Method\'94. This method works by creating a global volume. Once you\'92ve done that, create a new profile. The last step is to apply overrides. These are your effects! This method is explained VERY well in the YouTube video available in the resource links below.\
+\
+Another method I saw work in a YouTube video that I couldn\'92t get to work for me (linked below) uses a \'93post processing\'94 package. I\'92ll call this method the \'93Package Method.\'94 If I had to guess why this one wasn\'92t working for me, I would guess that it\'92s because of my rendering pipeline. This method probably works for some rendering pipelines but not for others. So if the Volume Method is giving you trouble this one might be worth trying. After installing the PP package, create a new layer for post processing. Then apply the layer to your camera gameObj. Next add a \'91Post Processing Layer\'92 component to your camera gameObj. Assign your new PP layer to this components layer menu. Next add another new component called \'93Post Processing Volume\'94 and set it to global. Now you can add effects to your volume\
+\
+When testing in the editor, be sure to be in the game view so that you can actually preview them. Once you get PP working, you can start managing your effect with code. Some popular effects are linking chromatic aberration intensity to player health, creating a bloom effect when exiting a dark room or looking up, a vignette effect when sneaking, or a color filter effect based on health or weather. Do note that PP effects can be very taxing on your system. Different effects use different amounts of resources. If you start to see performance issues, this could be why. \
+\
+\
+\
+Some useful resources:\
+{\field{\*\fldinst{HYPERLINK "https://docs.unity3d.com/Packages/com.unity.postprocessing@3.0/manual/Quick-start.html"}}{\fldrslt https://docs.unity3d.com/Packages/com.unity.postprocessing@3.0/manual/Quick-start.html}}  [Package Method]\
+{\field{\*\fldinst{HYPERLINK "https://docs.unity3d.com/Manual/PostProcessingOverview.html"}}{\fldrslt https://docs.unity3d.com/Manual/PostProcessingOverview.html}} [Volume Method]\
+{\field{\*\fldinst{HYPERLINK "https://docs.unity3d.com/2018.1/Documentation/Manual/PostProcessingWritingEffects.html"}}{\fldrslt https://docs.unity3d.com/2018.1/Documentation/Manual/PostProcessingWritingEffects.html}}\
+{\field{\*\fldinst{HYPERLINK "https://www.youtube.com/watch?v=yugZTujILB0&ab_channel=DaniKrossing"}}{\fldrslt https://www.youtube.com/watch?v=yugZTujILB0&ab_channel=DaniKrossing}} [Volume Method]\
+https://www.youtube.com/watch?v=ZzUOgsYXhrY&t=148s&ab_channel=Omogonix [Package Method]}
