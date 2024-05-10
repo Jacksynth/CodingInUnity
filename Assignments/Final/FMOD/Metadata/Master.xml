@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="MixerMaster" id="{a3831461-69ef-4cc2-94a6-d1ff51df69ad}">
+		<property name="volume">
+			<value>-1</value>
+		</property>
+		<relationship name="effectChain">
+			<destination>{0cac7c4f-ca58-415a-b6ef-1906a5cde3a6}</destination>
+		</relationship>
+		<relationship name="panner">
+			<destination>{2329f333-e4be-4d5e-a632-801fc2d9686b}</destination>
+		</relationship>
+		<relationship name="mixer">
+			<destination>{7a3f993d-6727-4251-b2d7-9a34b1916af7}</destination>
+		</relationship>
+	</object>
+	<object class="MixerBusEffectChain" id="{0cac7c4f-ca58-415a-b6ef-1906a5cde3a6}">
+		<relationship name="effects">
+			<destination>{ebc0197a-22b3-4163-ab80-53f881840133}</destination>
+			<destination>{c2e2f1e1-e77b-412d-b83d-fb754de1964a}</destination>
+			<destination>{41e2365d-8aa1-491e-8c58-3cb3f6623614}</destination>
+			<destination>{18b8426c-d8a7-4045-b0dd-1b041c93f24d}</destination>
+			<destination>{1bf30abe-3be7-4057-a635-00f60fe11e7d}</destination>
+		</relationship>
+	</object>
+	<object class="MixerBusPanner" id="{2329f333-e4be-4d5e-a632-801fc2d9686b}" />
+	<object class="LimiterEffect" id="{ebc0197a-22b3-4163-ab80-53f881840133}">
+		<property name="boost">
+			<value>0.900000036</value>
+		</property>
+		<property name="ceiling">
+			<value>-4</value>
+		</property>
+		<property name="release">
+			<value>1000</value>
+		</property>
+	</object>
+	<object class="PluginEffect" id="{c2e2f1e1-e77b-412d-b83d-fb754de1964a}">
+		<property name="bypass">
+			<value>true</value>
+		</property>
+		<relationship name="excludedPlatforms">
+			<destination>{f388fbe2-e750-4f2d-b57e-731d6d59f37e}</destination>
+		</relationship>
+		<relationship name="plugin">
+			<destination>{5dc67c4c-d6e8-4075-b5bf-df50aca78922}</destination>
+		</relationship>
+	</object>
+	<object class="LimiterEffect" id="{41e2365d-8aa1-491e-8c58-3cb3f6623614}">
+		<property name="bypass">
+			<value>true</value>
+		</property>
+		<property name="boost">
+			<value>12</value>
+		</property>
+		<property name="ceiling">
+			<value>-4</value>
+		</property>
+		<property name="release">
+			<value>280</value>
+		</property>
+	</object>
+	<object class="LoudnessMeter" id="{18b8426c-d8a7-4045-b0dd-1b041c93f24d}">
+		<property name="loudnessTarget">
+			<value>-24</value>
+		</property>
+	</object>
+	<object class="MixerBusFader" id="{1bf30abe-3be7-4057-a635-00f60fe11e7d}" />
+	<object class="Plugin" id="{5dc67c4c-d6e8-4075-b5bf-df50aca78922}">
+		<property name="identifier">
+			<value>McDSP ML1 Limiter</value>
+		</property>
+		<relationship name="pluginParameters">
+			<destination>{48d39a42-21b9-4fc9-a7ed-afced27dd5cf}</destination>
+			<destination>{0033a7f7-6689-4b1a-b6b1-7258063d7368}</destination>
+			<destination>{1b22ad8c-e36b-4ce2-adb0-21dd1bb55fe0}</destination>
+			<destination>{05b4ca94-a17d-4724-81b5-602a074f040c}</destination>
+			<destination>{2e32cd28-de6c-423a-b0f0-0cd73b7e709d}</destination>
+		</relationship>
+	</object>
+	<object class="FloatPluginParameter" id="{48d39a42-21b9-4fc9-a7ed-afced27dd5cf}">
+		<property name="name">
+			<value>Ceiling</value>
+		</property>
+		<property name="value">
+			<value>-10</value>
+		</property>
+		<property name="curve">
+			<value>{(0.000000,-36.000000)(1.000000,0.000000)}</value>
+		</property>
+	</object>
+	<object class="FloatPluginParameter" id="{0033a7f7-6689-4b1a-b6b1-7258063d7368}">
+		<property name="name">
+			<value>Threshold</value>
+		</property>
+		<property name="value">
+			<value>-10</value>
+		</property>
+		<property name="curve">
+			<value>{(0.000000,-36.000000)(1.000000,0.000000)}</value>
+		</property>
+	</object>
+	<object class="FloatPluginParameter" id="{1b22ad8c-e36b-4ce2-adb0-21dd1bb55fe0}">
+		<property name="name">
+			<value>Knee</value>
+		</property>
+		<property name="value">
+			<value>10</value>
+		</property>
+		<property name="curve">
+			<value>{(0.000000,0.000000)(1.000000,100.000000)}</value>
+		</property>
+	</object>
+	<object class="FloatPluginParameter" id="{05b4ca94-a17d-4724-81b5-602a074f040c}">
+		<property name="name">
+			<value>Release</value>
+		</property>
+		<property name="value">
+			<value>5000</value>
+		</property>
+		<property name="curve">
+			<value>{(0.000000,1.000000)(1.000000,2.000000)(2.000000,5.000000)(3.000000,10.000000)(4.000000,20.000000)(5.000000,50.000000)(6.000000,100.000000)(7.000000,200.000000)(8.000000,500.000000)(9.000000,1000.000000)(10.000000,2000.000000)(11.000000,5000.000000)}</value>
+		</property>
+	</object>
+	<object class="IntPluginParameter" id="{2e32cd28-de6c-423a-b0f0-0cd73b7e709d}">
+		<property name="name">
+			<value>Character</value>
+		</property>
+		<property name="value">
+			<value>3</value>
+		</property>
+		<property name="minimumValue">
+			<value>0</value>
+		</property>
+		<property name="maximumValue">
+			<value>5</value>
+		</property>
+	</object>
+</objects>
